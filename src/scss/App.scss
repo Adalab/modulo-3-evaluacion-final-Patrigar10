@@ -1,0 +1,69 @@
+@use 'core/reset';
+
+.header {
+    background-color: black;
+    height: 15vh;
+    text-align: center;
+    padding: 30px;
+
+    &_logo {
+        height: 100%;
+    }
+}
+
+
+.main {
+    background-color: black;
+    padding-inline: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    min-height: 85vh;
+
+}
+
+.resultsMessage {
+    color: white;
+}
+
+.characterList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.characterCard {
+    width: 200px;
+    background-color: rgb(32, 180, 218);
+
+    &_img {
+        width: 100%;
+    }
+
+    &_text {
+        color: white;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    &_text h3 {
+        text-align: center;
+    }
+}
+
+.form {
+
+    &_nameInput {
+        border: 2px solid rgb(32, 180, 218);
+        background-color: black;
+        width: 350px;
+        padding: 5px;
+        color: white;
+    }
+
+
+}
