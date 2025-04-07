@@ -55,6 +55,53 @@
     }
 }
 
+
+
+.characterDetail {
+    width: 500px;
+    height: 300px;
+    background-color: rgb(32, 180, 218);
+    display: flex;
+    padding: 30px;
+
+    &_img {
+        height: 100%;
+    }
+
+    &_text {
+        color: white;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+
+        &_category {
+            font-weight: bold;
+        }
+    }
+
+    &_text h3 {
+        font-size: 22px;
+    }
+}
+
+.linkBack {
+    width: 80px;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.linkBack img {
+    width: 100%;
+}
+
+.characterDetailMessage {
+    color: white;
+}
+
 .form {
 
     &_nameInput {
