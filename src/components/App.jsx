@@ -16,9 +16,12 @@ function App() {
   );
   const [message, setMessage] = useState("");
   const [loading, setloading] = useState(true);
+  const [checked, setChecked] = useState(false);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     callToApi().then((data) => {
+      setData(data);
       setCharacters(data);
       setloading(false);
     });
@@ -45,6 +48,24 @@ function App() {
     localStorage.set("speciesSelect", value);
   };
 
+  const onChangeAlph = (checked) => {
+    setChecked(checked);
+    if (checked) {
+      const isChecked = [...characters].sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      });
+      setCharacters(isChecked);
+    } else {
+      setCharacters(data);
+    }
+  };
+
   const filteredList = characters
     .filter((character) => {
       return character.name.toLowerCase().includes(nameInput);
@@ -56,7 +77,6 @@ function App() {
         return character.species === speciesSelect;
       }
     });
-
   return (
     <>
       <header className="header">
@@ -73,6 +93,7 @@ function App() {
                   nameInput={nameInput}
                   onChangeSpecies={onChangeSpecies}
                   speciesSelect={speciesSelect}
+                  onChangeAlph={onChangeAlph}
                 />
                 <CharacterList characters={filteredList} />
                 <p className="resultsMessage"> {message} </p>

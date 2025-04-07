@@ -5,6 +5,7 @@ const Filters = ({
   nameInput,
   onChangeSpecies,
   speciesSelect,
+  onChangeAlph,
 }) => {
   const handleChangeName = (event) => {
     onChangeName(event.target.value);
@@ -12,6 +13,10 @@ const Filters = ({
 
   const handleChangeSpecies = (event) => {
     onChangeSpecies(event.target.value);
+  };
+
+  const handleChangeAphab = (event) => {
+    onChangeAlph(event.target.checked);
   };
 
   const handleSubmit = (event) => {
@@ -37,6 +42,15 @@ const Filters = ({
         <option value="Human">Human</option>
         <option value="Alien">Alien</option>
       </select>
+      <label className="form_alphabeticalLabel" htmlFor="alphabetical">
+        Alphabetical order{" "}
+        <input
+          type="checkbox"
+          id="alphabetical"
+          value="alphabetical"
+          onChange={handleChangeAphab}
+        />
+      </label>
     </form>
   );
 };
