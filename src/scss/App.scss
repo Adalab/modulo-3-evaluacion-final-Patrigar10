@@ -14,14 +14,20 @@
 
 .main {
     background-color: black;
-    padding-inline: 100px;
+    padding-inline: 50px;
     display: flex;
     flex-direction: column;
     gap: 50px;
     align-items: center;
     min-height: 85vh;
 
+    @media (max-width: 834px) {
+        padding-inline: 15px;
+
+    }
 }
+
+
 
 .resultsMessage {
     color: white;
@@ -36,6 +42,13 @@
 .characterCard {
     width: 200px;
     background-color: rgb(32, 180, 218);
+
+    @media (max-width: 834px) {
+        width: 105px;
+
+    }
+
+
 
     &_img {
         width: 100%;
@@ -105,6 +118,12 @@
 .form {
     display: flex;
     gap: 30px;
+
+    @media (max-width: 1122px) {
+        display: flex;
+        flex-direction: column;
+
+    }
 
     &_nameInput {
         border: 2px solid rgb(32, 180, 218);
