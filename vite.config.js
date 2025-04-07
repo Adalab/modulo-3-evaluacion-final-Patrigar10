@@ -8,4 +8,5 @@ export default defineConfig({
     open: true, // Abre automáticamente el navegador
   },
   plugins: [react()],
+  base: "/modulo-3-evaluacion-final-Patrigar10/",
 });

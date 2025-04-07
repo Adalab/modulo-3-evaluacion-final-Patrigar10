@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import backArrow from "../images/backArrow.png";
 
 const CharacterDetail = ({ characters, loading }) => {
   const { id } = useParams();
@@ -49,10 +50,7 @@ const CharacterDetail = ({ characters, loading }) => {
         </div>
       </article>
       <Link to="/" className="linkBack">
-        <img
-          src="https://cdn.creazilla.com/emojis/57100/back-arrow-emoji-clipart-xl.png"
-          alt="back arrow"
-        />
+        <img src={backArrow} alt="back arrow" />
       </Link>
     </>
   );
