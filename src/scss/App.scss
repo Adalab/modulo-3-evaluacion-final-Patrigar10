@@ -103,6 +103,8 @@
 }
 
 .form {
+    display: flex;
+    gap: 30px;
 
     &_nameInput {
         border: 2px solid rgb(32, 180, 218);
@@ -110,6 +112,15 @@
         width: 350px;
         padding: 5px;
         color: white;
+    }
+
+    &_speciesSelect {
+        border: 2px solid rgb(32, 180, 218);
+        background-color: black;
+        width: 350px;
+        padding: 5px;
+        color: white;
+
     }
 
 

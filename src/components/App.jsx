@@ -11,6 +11,9 @@ import localStorage from "../services/localStorage";
 function App() {
   const [characters, setCharacters] = useState([]);
   const [nameInput, setNameInput] = useState(localStorage.get("nameInput", ""));
+  const [speciesSelect, setSpeciesSelect] = useState(
+    localStorage.get("speciesSelect", "")
+  );
   const [message, setMessage] = useState("");
   const [loading, setloading] = useState(true);
 
@@ -24,19 +27,35 @@ function App() {
   useEffect(() => {
     if (nameInput === "") {
       setMessage("");
+      if (speciesSelect === "") {
+        setMessage("");
+      }
     } else if (filteredList.length === 0) {
       setMessage("No se han encontrado coincidencias :(");
     }
-  }, [nameInput]);
+  }, [nameInput, speciesSelect]);
 
   const onChangeName = (value) => {
     setNameInput(value);
     localStorage.set("nameInput", value);
   };
 
-  const filteredList = characters.filter((character) => {
-    return character.name.toLowerCase().includes(nameInput);
-  });
+  const onChangeSpecies = (value) => {
+    setSpeciesSelect(value);
+    localStorage.set("speciesSelect", value);
+  };
+
+  const filteredList = characters
+    .filter((character) => {
+      return character.name.toLowerCase().includes(nameInput);
+    })
+    .filter((character) => {
+      if (speciesSelect === "") {
+        return true;
+      } else {
+        return character.species === speciesSelect;
+      }
+    });
 
   return (
     <>
@@ -49,7 +68,12 @@ function App() {
             path="/"
             element={
               <>
-                <Filters onChangeName={onChangeName} nameInput={nameInput} />
+                <Filters
+                  onChangeName={onChangeName}
+                  nameInput={nameInput}
+                  onChangeSpecies={onChangeSpecies}
+                  speciesSelect={speciesSelect}
+                />
                 <CharacterList characters={filteredList} />
                 <p className="resultsMessage"> {message} </p>
               </>

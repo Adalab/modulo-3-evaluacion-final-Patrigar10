@@ -1,8 +1,17 @@
 import "../scss/App.scss";
 
-const Filters = ({ onChangeName, nameInput }) => {
+const Filters = ({
+  onChangeName,
+  nameInput,
+  onChangeSpecies,
+  speciesSelect,
+}) => {
   const handleChangeName = (event) => {
     onChangeName(event.target.value);
+  };
+
+  const handleChangeSpecies = (event) => {
+    onChangeSpecies(event.target.value);
   };
 
   const handleSubmit = (event) => {
@@ -16,9 +25,18 @@ const Filters = ({ onChangeName, nameInput }) => {
         id="name"
         type="text"
         value={nameInput}
-        placeholder="Buscar por nombre..."
+        placeholder="Search by name..."
         onChange={handleChangeName}
       />
+      <select
+        name="species"
+        className="form_speciesSelect"
+        onChange={handleChangeSpecies}
+      >
+        <option value="">All species</option>
+        <option value="Human">Human</option>
+        <option value="Alien">Alien</option>
+      </select>
     </form>
   );
 };

@@ -4,16 +4,16 @@ import backArrow from "../images/backArrow.png";
 
 const CharacterDetail = ({ characters, loading }) => {
   const { id } = useParams();
-  console.log(id);
-  console.log(characters);
+  // console.log(id);
+  // console.log(characters);
 
   const selectedCharacter = characters.find((character) => {
     return character.id === parseInt(id);
   });
 
-  if (loading) return <p>Loading</p>;
-
-  if (!selectedCharacter) {
+  if (loading) {
+    return <p></p>;
+  } else if (!selectedCharacter) {
     return (
       <p className="characterDetailMessage">
         El personaje que buscas no existe :(
